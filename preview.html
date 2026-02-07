@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus Investment App - Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            50: '#FFF9F9',
+                            400: '#961414',
+                            900: '#52080D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-link {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link.active {
+            color: #961414;
+            border-bottom: 3px solid #961414;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        .faq-toggle {
+            cursor: pointer;
+        }
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(to bottom, #111, #1a1a1a);
+            border: 12px solid #000;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #961414 0%, #52080D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .gradient-burgundy {
+            background: linear-gradient(135deg, #961414 0%, #52080D 100%);
+        }
+        .shadow-soft {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white shadow-soft border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-3xl font-black text-burgundy-400 tracking-tight">
+                        PLUS
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <div class="nav-link active" onclick="switchTab('home')">Home</div>
+                    <div class="nav-link" onclick="switchTab('products')">Products</div>
+                    <div class="nav-link" onclick="switchTab('about')">About</div>
+                    <div class="nav-link" onclick="switchTab('faq')">FAQ</div>
+                    <div class="nav-link" onclick="switchTab('learn')">Learn</div>
+                </div>
+
+                <!-- Download Button -->
+                <button class="bg-burgundy-400 text-white px-6 py-2 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                    Download App
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden flex justify-between pb-4 border-t pt-4">
+                <div class="nav-link active text-sm" onclick="switchTab('home')">Home</div>
+                <div class="nav-link text-sm" onclick="switchTab('products')">Products</div>
+                <div class="nav-link text-sm" onclick="switchTab('about')">About</div>
+                <div class="nav-link text-sm" onclick="switchTab('faq')">FAQ</div>
+                <div class="nav-link text-sm" onclick="switchTab('learn')">Learn</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="tab-content active fade-in">
+        <!-- Hero Section -->
+        <section class="bg-burgundy-50 py-20 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div>
+                        <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
+                            All Your Investment Needs in One App
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Invest in mutual funds, Treasury Bills, and US stocks — all SEC regulated. Join 100,000+ Ghanaians already investing with Plus.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-burgundy-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition flex items-center justify-center gap-2">
+                                <span>📱</span> Google Play
+                            </button>
+                            <button class="bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition flex items-center justify-center gap-2">
+                                <span>🍎</span> App Store
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Phone Mockup -->
+                    <div class="flex justify-center md:justify-end">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                PLUS App
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Overview -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-black text-center text-gray-900 mb-4">Our Investment Products</h2>
+                <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">SEC-regulated investment options tailored for every investor</p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Mutual Funds Card -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-soft hover:shadow-lg transition">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">📈</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Mutual Funds</h3>
+                        <p class="text-gray-600 mb-4">Diversified investment portfolios managed by expert fund managers.</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">3 Funds Available</p>
+                    </div>
+
+                    <!-- Treasury Bills Card -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-soft hover:shadow-lg transition">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">🏛️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Treasury Bills</h3>
+                        <p class="text-gray-600 mb-4">Government-backed securities with competitive returns and flexible terms.</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">Low Risk</p>
+                    </div>
+
+                    <!-- US Stocks Card -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-soft hover:shadow-lg transition">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">🌍</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">US Stocks</h3>
+                        <p class="text-gray-600 mb-4">Access to 4,000+ international stocks with fractional share investing.</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">Powered by Bamboo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Plus -->
+        <section class="py-20 md:py-32 bg-burgundy-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-black text-center text-gray-900 mb-16">Why 100,000+ Ghanaians Choose Plus</h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Feature 1: SEC Regulated -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft">
+                        <div class="w-14 h-14 bg-burgundy-400 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-2xl text-white">✓</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">SEC Regulated</h3>
+                        <p class="text-gray-600">All investments are regulated by Ghana's Securities and Exchange Commission for your protection.</p>
+                    </div>
+
+                    <!-- Feature 2: Mobile Money -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft">
+                        <div class="w-14 h-14 bg-burgundy-400 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-2xl text-white">💳</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile Money Top-Up</h3>
+                        <p class="text-gray-600">Fund your investment account instantly using MTN Mobile Money, Vodafone Cash, or AirtelTigo Money.</p>
+                    </div>
+
+                    <!-- Feature 3: One App -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft">
+                        <div class="w-14 h-14 bg-burgundy-400 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-2xl text-white">📱</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">One App, Many Products</h3>
+                        <p class="text-gray-600">Access all investment products — mutual funds, T-Bills, and US stocks — from a single, intuitive platform.</p>
+                    </div>
+
+                    <!-- Feature 4: Start Small -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft">
+                        <div class="w-14 h-14 bg-burgundy-400 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-2xl text-white">🚀</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Start Small, Grow Big</h3>
+                        <p class="text-gray-600">Begin your investment journey with as little as GHS 100. No account minimums, just pure flexibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="bg-gray-50 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <p class="text-3xl md:text-4xl font-black text-burgundy-400">150,000+</p>
+                        <p class="text-gray-600 font-semibold mt-2">Downloads</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-black text-burgundy-400">100,000+</p>
+                        <p class="text-gray-600 font-semibold mt-2">Registered Users</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-black text-burgundy-400">✓</p>
+                        <p class="text-gray-600 font-semibold mt-2">SEC Regulated</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8">Start Investing Today</h2>
+                <p class="text-xl text-burgundy-50 mb-10">Join thousands of Ghanaians building wealth with Plus. Download the app now.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition flex items-center justify-center gap-2">
+                        <span>📱</span> Google Play
+                    </button>
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition flex items-center justify-center gap-2">
+                        <span>🍎</span> App Store
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="tab-content fade-in">
+        <!-- Header -->
+        <section class="bg-burgundy-50 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Investment Products</h1>
+                <p class="text-xl text-gray-600 max-w-2xl">Choose from a range of SEC-regulated investment options tailored to your financial goals.</p>
+            </div>
+        </section>
+
+        <!-- Mutual Funds -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Mutual Funds</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl">Professionally managed investment portfolios diversified across multiple assets.</p>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <!-- Fund 1 -->
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-soft hover:shadow-lg transition">
+                        <div class="h-32 bg-gradient-to-br from-burgundy-400 to-burgundy-900"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Stanbic Cash Trust</h3>
+                            <p class="text-gray-600 mb-4">Low-risk cash equivalent fund with competitive short-term returns.</p>
+                            <p class="text-sm text-gray-500 mb-6">NAV Update: Daily</p>
+                            <button class="w-full bg-burgundy-400 text-white py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                                Invest Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Fund 2 -->
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-soft hover:shadow-lg transition">
+                        <div class="h-32 bg-gradient-to-br from-burgundy-400 to-burgundy-900"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">IC Cash Trust</h3>
+                            <p class="text-gray-600 mb-4">Stable, government-backed securities with consistent dividend payouts.</p>
+                            <p class="text-sm text-gray-500 mb-6">NAV Update: Daily</p>
+                            <button class="w-full bg-burgundy-400 text-white py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                                Invest Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Fund 3 -->
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-soft hover:shadow-lg transition">
+                        <div class="h-32 bg-gradient-to-br from-burgundy-400 to-burgundy-900"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Databank Mfund II</h3>
+                            <p class="text-gray-600 mb-4">Growth-focused fund with equity exposure for long-term wealth building.</p>
+                            <p class="text-sm text-gray-500 mb-6">NAV Update: Weekly</p>
+                            <button class="w-full bg-burgundy-400 text-white py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                                Invest Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-burgundy-50 border-l-4 border-burgundy-400 p-6 rounded">
+                    <p class="text-gray-700"><span class="font-semibold text-burgundy-400">Note:</span> Mutual fund subscriptions are processed within 48 business hours. NAV (Net Asset Value) is updated according to fund schedule.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treasury Bills -->
+        <section class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Treasury Bills</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl">Secure, government-backed investment instruments with guaranteed returns.</p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Ghana Treasury Bills are short-term debt instruments issued by the Ministry of Finance. They're backed by the full faith and credit of the Government of Ghana, making them one of the safest investments available.
+                        </p>
+                        <button class="bg-burgundy-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                            Invest in T-Bills
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl p-6 shadow-soft">
+                            <p class="text-sm text-gray-500 font-semibold mb-2">GOVERNMENT-BACKED</p>
+                            <p class="text-gray-900 font-bold">100% Secure</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-soft">
+                            <p class="text-sm text-gray-500 font-semibold mb-2">FLEXIBLE TERMS</p>
+                            <p class="text-gray-900 font-bold">91 - 364 Days</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-soft">
+                            <p class="text-sm text-gray-500 font-semibold mb-2">COMPETITIVE RATES</p>
+                            <p class="text-gray-900 font-bold">18% - 24% p.a.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-soft">
+                            <p class="text-sm text-gray-500 font-semibold mb-2">LOW RISK</p>
+                            <p class="text-gray-900 font-bold">Guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- US Stocks -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <span class="inline-block bg-burgundy-50 text-burgundy-400 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                        Powered by Bamboo
+                    </span>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">US Stocks</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl">Invest in over 4,000 US-listed stocks with real fractional share ownership.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Access Global Markets</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-burgundy-400 font-bold mt-1">✓</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Real Ownership</p>
+                                    <p class="text-gray-600 text-sm">Own actual shares in US companies, not CFDs.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-burgundy-400 font-bold mt-1">✓</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Start with $1</p>
+                                    <p class="text-gray-600 text-sm">Low minimum investment barrier to entry.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-burgundy-400 font-bold mt-1">✓</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Fractional Shares</p>
+                                    <p class="text-gray-600 text-sm">Buy partial shares of expensive stocks.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-burgundy-400 font-bold mt-1">✓</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Instant Trading</p>
+                                    <p class="text-gray-600 text-sm">Execute trades during US market hours.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="mt-8 bg-burgundy-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-burgundy-900 transition">
+                            Start Investing
+                        </button>
+                    </div>
+                    <div class="bg-gradient-to-br from-burgundy-50 to-white rounded-2xl p-12 shadow-soft border border-gray-200">
+                        <p class="text-6xl text-center mb-4">📊</p>
+                        <p class="text-center text-gray-700 font-semibold">4,000+ Stocks Available</p>
+                        <p class="text-center text-gray-500 text-sm mt-2">From Fortune 500 companies to emerging tech startups</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transparent Fees -->
+        <section class="py-20 md:py-32 bg-burgundy-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">Transparent Fees</h2>
+                <p class="text-lg text-gray-700 mb-12">
+                    Know exactly what you're paying. All fees are displayed before you confirm any transaction. <span class="font-bold">No hidden charges. No surprises.</span>
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl p-8 shadow-soft">
+                        <p class="text-4xl font-black text-burgundy-400 mb-2">Per Transaction</p>
+                        <p class="text-gray-600">Clear, upfront pricing for each investment</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-soft">
+                        <p class="text-4xl font-black text-burgundy-400 mb-2">Competitive</p>
+                        <p class="text-gray-600">Rates among the most affordable in the market</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-soft">
+                        <p class="text-4xl font-black text-burgundy-400 mb-2">Shown Before</p>
+                        <p class="text-gray-600">See fees before confirming your investment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8">Ready to Invest?</h2>
+                <p class="text-xl text-burgundy-50 mb-10">Download Plus and start building your investment portfolio today.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        Google Play
+                    </button>
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        App Store
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="tab-content fade-in">
+        <!-- Header -->
+        <section class="bg-burgundy-50 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Building Wealth in and from Ghana</h1>
+                <p class="text-xl text-gray-600 max-w-2xl">Our story of creating accessible investment opportunities for everyday Ghanaians.</p>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Our Story</h2>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed text-lg">
+                    <p>
+                        <span class="font-bold text-burgundy-400">10th Capital Investments Limited</span> was founded with a mission: to democratize wealth-building for Ghanaians. We recognized a critical gap in the financial market — most investment products were inaccessible, complex, or required large minimum investments that kept everyday people out of the wealth-creation game.
+                    </p>
+
+                    <p>
+                        We saw families saving their money in bank accounts earning single-digit interest rates, while their purchasing power eroded with inflation. We saw young professionals wanting to invest globally but facing technical and financial barriers. We saw talented entrepreneurs unable to access the capital markets. The problem was clear: <span class="font-semibold">investment access in Ghana was broken.</span>
+                    </p>
+
+                    <p>
+                        That's why we built Plus. We partnered with SEC-regulated institutions, integrated with trusted global platforms like Bamboo, and created an app that puts institutional-quality investment products directly into your hands. No middlemen. No hidden fees. No minimums that don't make sense. Just clear, transparent access to mutual funds, government securities, and international stocks — all through one beautiful, easy-to-use app.
+                    </p>
+
+                    <p>
+                        Today, over <span class="font-semibold">100,000 Ghanaians</span> trust Plus with their investment journey. We're just getting started.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Pillars -->
+        <section class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-16">What We Stand For</h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border-t-4 border-burgundy-400">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">🔒</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">SEC Regulated</h3>
+                        <p class="text-gray-600">
+                            All investment products on Plus are regulated by Ghana's Securities and Exchange Commission, ensuring investor protection and market integrity.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border-t-4 border-burgundy-400">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">🏦</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Institutional Products</h3>
+                        <p class="text-gray-600">
+                            We've partnered with Ghana's leading financial institutions to bring you professional-grade investment products previously only available to institutions and high-net-worth individuals.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border-t-4 border-burgundy-400">
+                        <div class="w-16 h-16 bg-burgundy-50 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">🛡️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Security First</h3>
+                        <p class="text-gray-600">
+                            Your financial data is protected with bank-grade encryption. Two-factor authentication, secure APIs, and regular security audits keep your money safe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 text-center text-white">
+                    <div>
+                        <p class="text-5xl md:text-6xl font-black mb-3">100K+</p>
+                        <p class="text-burgundy-50 font-semibold">Registered Users</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl md:text-6xl font-black mb-3">150K+</p>
+                        <p class="text-burgundy-50 font-semibold">App Downloads</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl md:text-6xl font-black mb-3">3</p>
+                        <p class="text-burgundy-50 font-semibold">Mutual Funds</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl md:text-6xl font-black mb-3">4K+</p>
+                        <p class="text-burgundy-50 font-semibold">US Stocks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+
+                <div class="space-y-6 mb-12">
+                    <div>
+                        <p class="text-gray-600 mb-2">Email</p>
+                        <p class="text-2xl font-bold text-burgundy-400">support@plusapp.online</p>
+                    </div>
+
+                    <div>
+                        <p class="text-gray-600 mb-2">Address</p>
+                        <p class="text-lg text-gray-900">
+                            10th Capital Investments Limited<br>
+                            Accra, Ghana
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-gray-600 mb-4">Follow Us</p>
+                        <div class="flex justify-center gap-6">
+                            <button class="w-12 h-12 bg-burgundy-50 rounded-full flex items-center justify-center text-burgundy-400 hover:bg-burgundy-400 hover:text-white transition">
+                                f
+                            </button>
+                            <button class="w-12 h-12 bg-burgundy-50 rounded-full flex items-center justify-center text-burgundy-400 hover:bg-burgundy-400 hover:text-white transition">
+                                in
+                            </button>
+                            <button class="w-12 h-12 bg-burgundy-50 rounded-full flex items-center justify-center text-burgundy-400 hover:bg-burgundy-400 hover:text-white transition">
+                                tw
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8">Join Our Growing Community</h2>
+                <p class="text-xl text-burgundy-50 mb-10">Download Plus and start your wealth-building journey today.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        Google Play
+                    </button>
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        App Store
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ PAGE -->
+    <div id="faq" class="tab-content fade-in">
+        <!-- Header -->
+        <section class="bg-burgundy-50 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Frequently Asked Questions</h1>
+                <p class="text-xl text-gray-600 max-w-2xl">Find answers to common questions about Plus, our products, and how to get started.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Accordion -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Getting Started Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Getting Started</h2>
+
+                    <!-- FAQ 1 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">How do I create an account?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Download the Plus app from Google Play or the App Store. Open the app and select "Sign Up". You'll need your email, phone number, and identification (national ID, passport, or driver's license). Complete the KYC verification process, and you're ready to start investing!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">Is Plus available in my country?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Plus is currently available to Ghanaians. However, US stocks are available to users in multiple African countries. Check the app to see if your country is supported.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">Is Plus safe? Are my investments protected?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Yes. Plus is regulated by Ghana's Securities and Exchange Commission (SEC). All mutual funds are held with certified custodians. Your data is protected with bank-grade encryption. While we work hard to protect your information, investments in securities do carry market risk — the value of your investments can go up or down.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investing Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Investing</h2>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">What's the minimum investment amount?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Mutual Funds: Minimum of GHS 100 for initial investment, then GHS 50 for top-ups. Treasury Bills: Minimum of GHS 1,000. US Stocks: Start investing with as little as $1.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">How do I fund my investment account?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    You can fund your Plus wallet using MTN Mobile Money, Vodafone Cash, AirtelTigo Money, or bank transfer. Choose your preferred method in the app, enter the amount, and your wallet is funded instantly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">Can I withdraw my money anytime?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Mutual Funds: Yes, you can redeem anytime during market hours, with proceeds arriving within 2-3 business days. US Stocks: Yes, during US trading hours. Treasury Bills: Not until maturity. You can sell on the secondary market if needed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Transactions</h2>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">What are the fees?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Fees vary by product. Mutual funds typically charge a management fee. Treasury Bills may have a small origination fee. US stocks have per-transaction fees. All fees are shown clearly before you confirm your investment. There are no hidden charges.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">How long does a transaction take?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Wallet top-ups are instant. Mutual fund purchases are processed within 48 business hours. Treasury Bill purchases settle immediately. US stock purchases settle within standard market hours (Mon-Fri, 9:30 AM - 4:00 PM EST).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 9 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">Can I transfer money between my accounts?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Yes. You can transfer between your Plus wallet, mutual fund accounts, and US stock account. Internal transfers are instant. Withdrawals to your bank account or mobile money are processed within 24 hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Support</h2>
+
+                    <!-- FAQ 10 -->
+                    <div class="faq-item mb-4">
+                        <div class="faq-toggle bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-gray-900">How do I contact customer support?</h3>
+                                <span class="text-burgundy-400 font-bold">+</span>
+                            </div>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <div class="p-6 bg-white border-l-4 border-burgundy-400">
+                                <p class="text-gray-700">
+                                    Contact our support team via email at support@plusapp.online. You can also reach out through the in-app chat support. We aim to respond to all inquiries within 24 hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8">Still Have Questions?</h2>
+                <p class="text-xl text-burgundy-50 mb-10">Our support team is here to help. Email us or download the app to chat with us directly.</p>
+                <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                    Email Support
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- LEARN PAGE -->
+    <div id="learn" class="tab-content fade-in">
+        <!-- Header -->
+        <section class="bg-burgundy-50 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Learn</h1>
+                <p class="text-xl text-gray-600 max-w-2xl">Financial education to help you invest with confidence.</p>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="py-20 md:py-32 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-6xl mb-6">🚀</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Coming Soon</h2>
+                <p class="text-xl text-gray-600 mb-12">
+                    We're building an extensive library of educational content to help you make informed investment decisions. Stay tuned!
+                </p>
+            </div>
+        </section>
+
+        <!-- Social Links -->
+        <section class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-16">Follow Our Content</h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- YouTube -->
+                    <a href="#" class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-lg transition text-center">
+                        <p class="text-6xl mb-6">📺</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Money Talks</h3>
+                        <p class="text-gray-600 mb-6">Watch our weekly investment tips and financial education videos</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">YouTube Channel</p>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="#" class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-lg transition text-center">
+                        <p class="text-6xl mb-6">📸</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">@investwithplus</h3>
+                        <p class="text-gray-600 mb-6">Daily investment insights, market updates, and community stories</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">Instagram</p>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="#" class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-lg transition text-center">
+                        <p class="text-6xl mb-6">🎵</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">@investwithplus</h3>
+                        <p class="text-gray-600 mb-6">Short-form financial education and investing myths debunked</p>
+                        <p class="text-sm text-burgundy-400 font-semibold">TikTok</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="gradient-burgundy py-20 md:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8">Start Your Investment Journey</h2>
+                <p class="text-xl text-burgundy-50 mb-10">Download Plus today and begin building wealth, with educational resources to guide you every step of the way.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        Google Play
+                    </button>
+                    <button class="bg-white text-burgundy-400 px-8 py-4 rounded-lg font-bold hover:bg-burgundy-50 transition">
+                        App Store
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-burgundy-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-black mb-6">PLUS</h3>
+                    <p class="text-burgundy-50 text-sm mb-6 leading-relaxed">
+                        Democratizing investment access for Ghanaians. Invest in what matters with Plus.
+                    </p>
+                    <div class="flex gap-4">
+                        <button class="w-10 h-10 bg-burgundy-400 rounded-full flex items-center justify-center hover:bg-white hover:text-burgundy-900 transition">
+                            f
+                        </button>
+                        <button class="w-10 h-10 bg-burgundy-400 rounded-full flex items-center justify-center hover:bg-white hover:text-burgundy-900 transition">
+                            in
+                        </button>
+                        <button class="w-10 h-10 bg-burgundy-400 rounded-full flex items-center justify-center hover:bg-white hover:text-burgundy-900 transition">
+                            tw
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="font-bold mb-6 text-white">Products</h4>
+                    <ul class="space-y-3 text-sm text-burgundy-50">
+                        <li><a href="#" class="hover:text-white transition">Mutual Funds</a></li>
+                        <li><a href="#" class="hover:text-white transition">Treasury Bills</a></li>
+                        <li><a href="#" class="hover:text-white transition">US Stocks</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-bold mb-6 text-white">Company</h4>
+                    <ul class="space-y-3 text-sm text-burgundy-50">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold mb-6 text-white">Legal</h4>
+                    <ul class="space-y-3 text-sm text-burgundy-50">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Risk Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-burgundy-400 pt-12">
+                <p class="text-burgundy-50 text-sm text-center mb-2">
+                    © 2026 10th Capital Investments Limited. All rights reserved.
+                </p>
+                <p class="text-burgundy-50 text-xs text-center">
+                    Accra, Ghana | SEC Regulated Investment Platform
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        function switchTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // Mark nav link as active
+            event.target.classList.add('active');
+        }
+
+        // FAQ Accordion
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('span');
+
+            // Close all other FAQs
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allToggles = document.querySelectorAll('.faq-toggle span');
+
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.classList.remove('active');
+                }
+            });
+
+            allToggles.forEach(t => {
+                if (t !== toggle) {
+                    t.textContent = '+';
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Smooth scroll for navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize with home tab active
+            switchTab('home');
+        });
+    </script>
+</body>
+</html>

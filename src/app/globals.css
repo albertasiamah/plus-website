@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+/* Custom brand colors */
+:root {
+  --color-burgundy: #961414;
+  --color-dark-burgundy: #52080D;
+  --color-light-bg: #FFF9F9;
+}
+
+/* Utility classes for custom colors */
+.bg-burgundy {
+  background-color: #961414;
+}
+
+.bg-dark-burgundy {
+  background-color: #52080D;
+}
+
+.bg-light-burgundy {
+  background-color: #FFF9F9;
+}
+
+.text-burgundy {
+  color: #961414;
+}
+
+.text-dark-burgundy {
+  color: #52080D;
+}
+
+.border-burgundy {
+  border-color: #961414;
+}
+
+/* Button hover effects */
+.btn-burgundy {
+  @apply bg-burgundy hover:bg-dark-burgundy text-white transition-colors duration-200;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Remove transition from certain elements for performance */
+input,
+textarea,
+select {
+  transition: none;
+}
+
+/* Base resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}

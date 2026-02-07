@@ -1,0 +1,120 @@
+import DownloadCTA from '@/components/DownloadCTA';
+import { Youtube, Instagram, TrendingUp } from 'lucide-react';
+
+export default function LearnPage() {
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header Section */}
+      <section className="bg-gradient-to-b from-[#FFF9F9] to-white py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h1 className="mb-4 text-4xl font-bold text-[#52080D] md:text-5xl">
+            Learn
+          </h1>
+          <p className="text-lg text-gray-600">
+            Financial education to help you invest with confidence
+          </p>
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-lg border border-gray-200 bg-gradient-to-br from-[#FFF9F9] to-white p-8 md:p-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-[#961414]">
+              Coming Soon
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              We're building a library of guides, articles, and videos to help you on your investment journey. In the meantime, check out our content on social media.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Channels Section */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h3 className="mb-8 text-2xl font-bold text-[#52080D] text-center">
+            Learn From Our Community
+          </h3>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {/* YouTube Card */}
+            <a
+              href="https://youtube.com/@investwithplus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
+            >
+              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
+                <Youtube
+                  size={28}
+                  className="text-[#961414] group-hover:text-white transition-colors"
+                />
+              </div>
+              <h4 className="mb-2 text-xl font-bold text-gray-900">YouTube</h4>
+              <p className="mb-4 text-base text-gray-600">
+                <span className="font-semibold text-[#961414]">Money Talks</span> — Watch our video series on investing basics, market updates, and tips.
+              </p>
+              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
+                Visit Channel →
+              </span>
+            </a>
+
+            {/* Instagram Card */}
+            <a
+              href="https://instagram.com/investwithplus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
+            >
+              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
+                <Instagram
+                  size={28}
+                  className="text-[#961414] group-hover:text-white transition-colors"
+                />
+              </div>
+              <h4 className="mb-2 text-xl font-bold text-gray-900">
+                @investwithplus
+              </h4>
+              <p className="mb-4 text-base text-gray-600">
+                Follow us for daily tips, product updates, and investment insights.
+              </p>
+              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
+                Follow →
+              </span>
+            </a>
+
+            {/* TikTok Card */}
+            <a
+              href="https://tiktok.com/@investwithplus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
+            >
+              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
+                <TrendingUp
+                  size={28}
+                  className="text-[#961414] group-hover:text-white transition-colors"
+                />
+              </div>
+              <h4 className="mb-2 text-xl font-bold text-gray-900">
+                @investwithplus
+              </h4>
+              <p className="mb-4 text-base text-gray-600">
+                Quick financial tips and investment education in bite-sized videos.
+              </p>
+              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
+                Follow →
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Download CTA */}
+      <section className="py-16 md:py-20">
+        <DownloadCTA />
+      </section>
+    </div>
+  );
+}

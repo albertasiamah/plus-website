@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
 
 interface FAQItem {
   id: string;
@@ -140,14 +139,20 @@ export default function FAQPage() {
                           {item.question}
                         </h3>
                         <div className="ml-4 flex-shrink-0">
-                          <ChevronDown
-                            size={24}
+                          <svg
+                            width={24}
+                            height={24}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
                             className={`transition-all duration-300 ${
                               expandedId === item.id
                                 ? 'rotate-180 text-[#961414]'
                                 : 'text-gray-400'
                             }`}
-                          />
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
                         </div>
                       </button>
 

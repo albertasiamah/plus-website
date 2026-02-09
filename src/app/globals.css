@@ -18,6 +18,15 @@ body {
   --color-burgundy: #961414;
   --color-dark-burgundy: #52080D;
   --color-light-bg: #FFF9F9;
+  /* Pastel accents */
+  --pastel-peach: #FDDCCC;
+  --pastel-lavender: #E8DAFB;
+  --pastel-mint: #C9F0DC;
+  --pastel-sky: #CCE5F6;
+  --tint-peach: #FEF0E8;
+  --tint-lavender: #F5F0FD;
+  --tint-mint: #EDFAF3;
+  --tint-sky: #EBF4FB;
 }
 
 /* Utility classes for custom colors */
@@ -180,6 +189,15 @@ button {
 
 .animate-pulse-glow {
   animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.15); opacity: 0.35; }
+}
+
+.animate-ring-pulse {
+  animation: ringPulse 4s ease-in-out infinite;
 }
 
 /* Stagger delays */

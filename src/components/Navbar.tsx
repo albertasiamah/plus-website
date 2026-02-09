@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+const PLAY_STORE = "https://play.google.com/store/apps/details?id=online.plusapp.android&pcampaignid=web_share";
+const APP_STORE = "https://apps.apple.com/us/app/plus-invest/id6444616895";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [storeUrl, setStoreUrl] = useState(PLAY_STORE);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const ua = navigator.userAgent || "";
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      setStoreUrl(APP_STORE);
+    }
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -57,16 +68,26 @@ export default function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
-            <button className="btn-burgundy px-6 py-2 rounded-lg font-semibold text-sm lg:text-base">
+            <a
+              href={storeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-burgundy px-6 py-2 rounded-lg font-semibold text-sm lg:text-base inline-block"
+            >
               Download App
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-4">
-            <button className="btn-burgundy px-4 py-2 rounded-lg font-semibold text-sm">
+            <a
+              href={storeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-burgundy px-4 py-2 rounded-lg font-semibold text-sm inline-block"
+            >
               Download
-            </button>
+            </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-light-burgundy focus:outline-none transition-colors"

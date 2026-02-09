@@ -109,10 +109,10 @@ export default function Home() {
           <AnimateOnScroll animation="fade-in-up">
             <div className="text-center mb-10 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#52080D] mb-4">
-                See Plus in Action
+                Investing Made Easy
               </h2>
               <p className="text-gray-500 text-lg">
-                Watch how Ghanaians are building wealth with Plus.
+                A quick look at what Plus can do for you.
               </p>
             </div>
           </AnimateOnScroll>
@@ -120,7 +120,7 @@ export default function Home() {
           <AnimateOnScroll animation="scale-in" delay={200}>
             <VideoEmbed
               videoId="VnrjSaJ0Mvs"
-              title="Impulse Buyer? — Plus Money Talks"
+              title="Plus Money Talks"
             />
           </AnimateOnScroll>
         </div>

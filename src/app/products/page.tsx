@@ -37,10 +37,6 @@ export default function ProductsPage() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 A money market fund by Stanbic Investment Management. Low risk, easy access to your money.
               </p>
-              <button className="inline-flex items-center text-burgundy font-semibold hover:text-dark-burgundy transition-colors">
-                Invest Now
-                <span className="ml-2">→</span>
-              </button>
             </div>
 
             {/* IC Cash Trust Card */}
@@ -51,10 +47,6 @@ export default function ProductsPage() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 Managed by IC Asset Managers. A cash trust fund designed for capital preservation.
               </p>
-              <button className="inline-flex items-center text-burgundy font-semibold hover:text-dark-burgundy transition-colors">
-                Invest Now
-                <span className="ml-2">→</span>
-              </button>
             </div>
 
             {/* Databank Mfund II Card */}
@@ -65,10 +57,6 @@ export default function ProductsPage() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 A Databank fund accessible directly from your phone. Professional management, easy monitoring.
               </p>
-              <button className="inline-flex items-center text-burgundy font-semibold hover:text-dark-burgundy transition-colors">
-                Invest Now
-                <span className="ml-2">→</span>
-              </button>
             </div>
           </div>
 
@@ -204,7 +192,7 @@ export default function ProductsPage() {
                   Low Minimum Investment
                 </h3>
                 <p className="text-gray-700">
-                  Start with as little as $1. Fractional shares make investing accessible to everyone.
+                  Start with as little as $10. Fractional shares make investing accessible to everyone.
                 </p>
               </div>
             </div>

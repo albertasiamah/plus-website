@@ -126,10 +126,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@plusapp.online"
+                  href="mailto:support@plusapp.online"
                   className="text-white/70 hover:text-white transition-colors text-sm"
                 >
-                  Contact
+                  support@plusapp.online
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+233201673720"
+                  className="text-white/70 hover:text-white transition-colors text-sm"
+                >
+                  020 167 3720
                 </a>
               </li>
             </ul>

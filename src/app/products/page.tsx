@@ -154,7 +154,7 @@ export default function ProductsPage() {
                   Real Ownership
                 </h3>
                 <p className="text-gray-700">
-                  You own the actual stocks, not derivatives. Direct ownership in the companies you believe in.
+                  You own the actual stocks, not derivatives.
                 </p>
               </div>
             </div>
@@ -169,10 +169,10 @@ export default function ProductsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Low Minimum Investment
+                  Low Minimum
                 </h3>
                 <p className="text-gray-700">
-                  Start with as little as $10. Fractional shares make investing accessible to everyone.
+                  Start with as little as $10.
                 </p>
               </div>
             </div>
@@ -187,10 +187,10 @@ export default function ProductsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  4,000+ Stocks Available
+                  4,000+ Stocks
                 </h3>
                 <p className="text-gray-700">
-                  Trade Apple, Google, Tesla, Amazon and more. Diversify your portfolio across the world's largest companies.
+                  Apple, Google, Tesla, Amazon and more.
                 </p>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function ProductsPage() {
                   Fractional Shares
                 </h3>
                 <p className="text-gray-700">
-                  Own parts of expensive stocks. No need to buy whole shares to get started.
+                  Buy a piece of any stock — no need to buy a whole share.
                 </p>
               </div>
             </div>

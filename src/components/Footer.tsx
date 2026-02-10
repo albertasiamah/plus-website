@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -12,7 +10,8 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/images/plus-logo-white.png"
                 alt="Plus Investment App"
                 width={120}

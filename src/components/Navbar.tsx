@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useUTM } from "@/lib/useUTM";
 
@@ -29,12 +28,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/images/plus-logo-header.png"
               alt="Plus Investment App"
               width={120}
               height={40}
-              priority
               className="h-10 w-auto"
             />
           </Link>

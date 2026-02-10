@@ -148,7 +148,7 @@ export default function AboutPage() {
             By The Numbers
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
             {/* Stat 1: Users */}
             <AnimateOnScroll animation="fade-in-up" delay={0}>
               <div className="text-center">
@@ -169,18 +169,8 @@ export default function AboutPage() {
               </div>
             </AnimateOnScroll>
 
-            {/* Stat 3: Mutual Funds */}
+            {/* Stat 3: US Stocks */}
             <AnimateOnScroll animation="fade-in-up" delay={200}>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter target={3} />
-                </div>
-                <p className="text-burgundy-light">Mutual Fund Products</p>
-              </div>
-            </AnimateOnScroll>
-
-            {/* Stat 4: US Stocks */}
-            <AnimateOnScroll animation="fade-in-up" delay={300}>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
                   <AnimatedCounter target={4000} suffix="+" />

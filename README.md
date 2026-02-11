@@ -1,6 +1,6 @@
 # Plus Investment App — Website
 
-The official marketing website for **Plus**, Ghana's all-in-one investment app by [10th Capital Investments Limited](https://10thcapital.com). Built with Next.js 14, TypeScript, and Tailwind CSS.
+The official marketing website for **Plus**, Ghana's all-in-one investment app by [10th Capital Investments Limited](https://10thcapital.investments). Built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## Tech Stack
 

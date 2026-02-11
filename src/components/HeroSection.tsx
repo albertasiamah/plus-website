@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useUTM } from "@/lib/useUTM";
 import PhoneMockup from "./PhoneMockup";
 
@@ -112,7 +112,7 @@ export default function HeroSection({
             {/* App Store Buttons */}
             {showAppButtons && (
               <div
-                className={`flex flex-col sm:flex-row gap-3 pt-2 transition-all duration-700 delay-300 ${
+                className={`flex flex-row gap-3 pt-2 transition-all duration-700 delay-300 ${
                   mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >

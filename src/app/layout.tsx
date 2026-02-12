@@ -4,6 +4,7 @@ import "./globals.css";
 
 // Replace with your actual GTM container ID once you create one at tagmanager.google.com
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+const GA_ID = "G-HEHCYY5FTJ";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.plusapp.online"),
@@ -81,6 +82,25 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://www.plusapp.online" />
 
+
+        {/* Google Analytics 4 (gtag.js) */}
+        <Script
+          id="ga4-script"
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <Script
+          id="ga4-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `,
+          }}
+        />
 
         {/* Google Tag Manager - head script */}
         {GTM_ID && (

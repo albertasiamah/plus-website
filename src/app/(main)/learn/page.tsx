@@ -1,125 +1,240 @@
-import type { Metadata } from "next";
-import DownloadCTA from '@/components/DownloadCTA';
+"use client";
 
-export const metadata: Metadata = {
-  title: "Learn",
-  description: "Financial education and investment tips from Plus. Follow us on YouTube, Instagram, and TikTok for guides and market updates.",
-};
+import { useState } from "react";
+import DownloadCTA from "@/components/DownloadCTA";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+
+interface Video {
+  id: string;
+  title: string;
+  duration: string;
+  views: string;
+}
+
+const videos: Video[] = [
+  {
+    id: "P2JZuKYvY5s",
+    title: "How Do Mutual Funds Work?",
+    duration: "7:04",
+    views: "26K",
+  },
+  {
+    id: "_MJdLjgOcHg",
+    title: "What Does It Mean to Buy a Treasury Bill?",
+    duration: "4:34",
+    views: "514",
+  },
+  {
+    id: "Ir4X9aKBtwg",
+    title: "What Does It Mean to Invest in Government Bonds?",
+    duration: "8:37",
+    views: "6.5K",
+  },
+  {
+    id: "g-t5DvVt8yY",
+    title: "Is It a Good Idea to Buy and Hold Dollars?",
+    duration: "6:32",
+    views: "10K",
+  },
+  {
+    id: "VijoBD1RPWs",
+    title: "Insurance Explained",
+    duration: "5:25",
+    views: "7.1K",
+  },
+  {
+    id: "NqsT0dftIVQ",
+    title: "Marked to Market",
+    duration: "4:10",
+    views: "12K",
+  },
+  {
+    id: "5sXGyvpdthA",
+    title: "How to Prepare a Budget",
+    duration: "7:18",
+    views: "4.4K",
+  },
+  {
+    id: "kR7V1jl1yuw",
+    title: "What Does It Mean to Buy Shares in a Company?",
+    duration: "8:04",
+    views: "5.9K",
+  },
+  {
+    id: "kkbmkjGXt3E",
+    title: "How to Make 2025 Your Best Financial Year",
+    duration: "5:33",
+    views: "17K",
+  },
+  {
+    id: "OUU9TBsMotI",
+    title: "Why You Should Not Hide Money Under Your Bed",
+    duration: "7:19",
+    views: "9.4K",
+  },
+  {
+    id: "e2E83Lfbdj8",
+    title: "Why You Should Not Rush Into Financial Decisions",
+    duration: "7:48",
+    views: "334",
+  },
+  {
+    id: "V6u4Mx9VePY",
+    title: "Is a 100% Return Safe?",
+    duration: "8:31",
+    views: "207",
+  },
+  {
+    id: "qm3X5rVxDNA",
+    title: "Should You Buy an iPhone for Half Price?",
+    duration: "8:20",
+    views: "259",
+  },
+];
+
+function VideoCard({ video, index }: { video: Video; index: number }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/mqdefault.jpg`;
+
+  return (
+    <AnimateOnScroll
+      animation="fade-in-up"
+      delay={Math.min(index % 3, 2) * 100}
+      className="h-full"
+    >
+      <div className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-[#961414]/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+        {/* Thumbnail / Player */}
+        <div className="relative aspect-video bg-gray-100">
+          {isPlaying ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
+              title={video.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          ) : (
+            <button
+              onClick={() => setIsPlaying(true)}
+              className="relative w-full h-full cursor-pointer"
+              aria-label={`Play: ${video.title}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={thumbnailUrl}
+                alt={video.title}
+                className="w-full h-full object-cover"
+              />
+
+              {/* Play button overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/15 transition-colors">
+                <div className="w-14 h-14 rounded-full bg-[#961414] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-6 h-6 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Duration badge */}
+              <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs font-medium px-2 py-0.5 rounded">
+                {video.duration}
+              </span>
+            </button>
+          )}
+        </div>
+
+        {/* Info */}
+        <div className="p-5 flex-grow flex flex-col">
+          <h3 className="text-base font-bold text-[#52080D] leading-snug group-hover:text-[#961414] transition-colors">
+            {video.title}
+          </h3>
+          <p className="mt-2 text-sm text-gray-400">
+            {video.views} views
+          </p>
+        </div>
+      </div>
+    </AnimateOnScroll>
+  );
+}
 
 export default function LearnPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Section */}
-      <section className="bg-gradient-to-b from-[#FFF9F9] to-white py-16 md:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h1 className="mb-4 text-4xl font-bold text-[#52080D] md:text-5xl">
-            Learn
-          </h1>
-          <p className="text-lg text-gray-600">
-            Financial education to help you invest with confidence
-          </p>
+      {/* Header */}
+      <section className="bg-gradient-to-b from-[#FFF9F9] to-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll animation="fade-in-up">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#52080D] mb-4">
+                Learn
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
+                Free financial education from Plus. Understand investing,
+                grow your confidence, and make smarter decisions with your money.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
-      {/* Coming Soon Section */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-lg border border-gray-200 bg-gradient-to-br from-[#FFF9F9] to-white p-8 md:p-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-[#961414]">
-              Coming Soon
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              We're building a library of guides, articles, and videos to help you on your investment journey. In the meantime, check out our content on social media.
-            </p>
+      {/* Video Grid */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {videos.map((video, i) => (
+              <VideoCard key={video.id} video={video} index={i} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Social Channels Section */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h3 className="mb-8 text-2xl font-bold text-[#52080D] text-center">
-            Learn From Our Community
-          </h3>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {/* YouTube Card */}
-            <a
-              href="https://youtube.com/@investwithplus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
-            >
-              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
-                <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#961414] group-hover:text-white transition-colors">
+      {/* Subscribe CTA */}
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll animation="fade-in-up">
+            <div className="bg-gradient-to-br from-[#FFF9F9] to-white rounded-2xl p-8 sm:p-12 border border-gray-100 text-center">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#52080D] mb-3">
+                Want More?
+              </h2>
+              <p className="text-gray-500 text-base sm:text-lg mb-6 max-w-md mx-auto">
+                Subscribe for new videos on investing, personal finance,
+                and building wealth from a Ghanaian perspective.
+              </p>
+              <a
+                href="https://youtube.com/@thinklikeanant?sub_confirmation=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-burgundy inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-base"
+              >
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <rect x="2" y="4" width="20" height="16" rx="4" />
-                  <polygon points="10,8.5 16,12 10,15.5" fill="currentColor" stroke="none" />
+                  <polygon
+                    points="10,8.5 16,12 10,15.5"
+                    fill="currentColor"
+                    stroke="none"
+                  />
                 </svg>
-              </div>
-              <h4 className="mb-2 text-xl font-bold text-gray-900">YouTube</h4>
-              <p className="mb-4 text-base text-gray-600">
-                <span className="font-semibold text-[#961414]">Money Talks</span> — Watch our video series on investing basics, market updates, and tips.
-              </p>
-              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
-                Visit Channel →
-              </span>
-            </a>
-
-            {/* Instagram Card */}
-            <a
-              href="https://instagram.com/investwithplus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
-            >
-              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
-                <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#961414] group-hover:text-white transition-colors">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </div>
-              <h4 className="mb-2 text-xl font-bold text-gray-900">
-                @investwithplus
-              </h4>
-              <p className="mb-4 text-base text-gray-600">
-                Follow us for daily tips, product updates, and investment insights.
-              </p>
-              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
-                Follow →
-              </span>
-            </a>
-
-            {/* TikTok Card */}
-            <a
-              href="https://tiktok.com/@investwithplus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:border-[#961414]"
-            >
-              <div className="mb-4 inline-block rounded-lg bg-[#FFF9F9] p-3 group-hover:bg-[#961414] transition-colors">
-                <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#961414] group-hover:text-white transition-colors">
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                </svg>
-              </div>
-              <h4 className="mb-2 text-xl font-bold text-gray-900">
-                @investwithplus
-              </h4>
-              <p className="mb-4 text-base text-gray-600">
-                Quick financial tips and investment education in bite-sized videos.
-              </p>
-              <span className="inline-block text-[#961414] font-semibold group-hover:underline">
-                Follow →
-              </span>
-            </a>
-          </div>
+                Subscribe on YouTube
+              </a>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Download CTA */}
-      <section className="py-16 md:py-20">
-        <DownloadCTA />
-      </section>
+      <DownloadCTA />
     </div>
   );
 }

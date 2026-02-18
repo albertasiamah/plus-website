@@ -15,7 +15,7 @@ export default function Navbar() {
     { href: "/products", label: "Products" },
     { href: "/about", label: "About" },
     { href: "/faq", label: "FAQ" },
-    // { href: "/learn", label: "Learn" }, // Hidden until Learn section is developed
+    { href: "/learn", label: "Learn" },
   ];
 
   const isActive = (href: string) => {

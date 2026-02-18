@@ -114,7 +114,14 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
-              {/* Learn link hidden until section is developed */}
+              <li>
+                <Link
+                  href="/learn"
+                  className="text-white/70 hover:text-white transition-colors text-sm"
+                >
+                  Learn
+                </Link>
+              </li>
               <li>
                 <a
                   href="mailto:support@plusapp.online"

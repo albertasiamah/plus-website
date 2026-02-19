@@ -31,6 +31,7 @@ export default function Footer() {
                 { label: "Products", href: "/products" },
                 { label: "About", href: "/about" },
                 { label: "FAQ", href: "/faq" },
+                { label: "Learn", href: "/learn" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
               ].map((link) => (
@@ -53,36 +54,6 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                <Link
-                  href="/about"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/learn"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
-                >
-                  Learn
-                </Link>
-              </li>
-              <li>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                 <a
                   href="mailto:support@plusapp.online"
                   className="text-white/60 hover:text-white transition-colors text-sm"
